@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="p2-style.css">
+    <script src="p2-script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="biy.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <h1>Volunteer Management System</h1>
+                <li><a href="p2-index.html">Home</a></li>
+                <li><a href="p2-about.html">About</a></li>
+                <li><a href="p2-contact.html">Contact</a></li>
+                <li><a href="p2-login.html">Login</a></li>
+                <li><a href="p2-register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-section">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required>
+                <span class="error-message" id="phoneError"></span>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Volunteer Management System. All rights reserved.</p>
+        <p>
+            Follow us on:
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </p>
+    </footer>
+</body>
+</html>

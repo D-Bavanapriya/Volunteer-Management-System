@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="p2-style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2f4f6f;
+            margin: 0;
+            padding: 0;
+        }
+
+        .register-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color:  #355372;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        input:focus, select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="biy.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <h1>Volunteer Management System</h1>
+                <li><a href="p2-index.html">Home</a></li>
+                <li><a href="p2-about.html">About</a></li>
+                <li><a href="p2-contact.html">Contact</a></li>
+                <li><a href="p2-login.html">Login</a></li>
+                <li><a href="p2-register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="register-section">
+        <form id="registerForm" onsubmit="return validateForm()">
+            <h2>Register</h2>
+
+            <div id="error-message" class="error-message" style="display:none;"></div>
+
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" required>
+
+            <label for="event">Select Event:</label>
+            <select id="event" required>
+                <option value="">Select an event</option>
+                <option value="community-cleanups">Community Cleanups</option>
+                <option value="blood-donation-drives">Blood Donation Drives</option>
+                <option value="beach-cleanups">Beach Cleanups</option>
+                <option value="food-drives">Food Drives</option>
+                <option value="educational-workshops">Educational Workshops</option>
+                <option value="health-camps">Health Camps</option>
+                <option value="book-drives">Book Drives</option>
+                <option value="disaster-relief">Disaster Relief</option>
+                <option value="animal-welfare-initiatives">Animal Welfare Initiatives</option>
+                <option value="mentoring-programs">Mentoring Programs</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Volunteer Management System. All rights reserved.</p>
+        <p>
+            Follow us on:
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </p>    
+    </footer>
+
+    <script>
+        function validateForm() {
+            const fullName = document.getElementById('fullname').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Email validation
+            if (!email.includes('@')) {
+                errorMessage.style.display = 'block';
+                errorMessage.textContent = 'Please enter a valid email address.';
+                return false;
+            }
+
+            // Phone number validation (must be exactly 10 digits)
+            if (phone.length !== 10 || isNaN(phone)) {
+                errorMessage.style.display = 'block';
+                errorMessage.textContent = 'Phone number must be exactly 10 digits.';
+                return false;
+            }
+
+            // Password confirmation
+            if (password !== confirmPassword) {
+                errorMessage.style.display = 'block';
+                errorMessage.textContent = 'Passwords do not match.';
+                return false;
+            }
+
+            // If all validation passes
+            errorMessage.style.display = 'none';
+            alert('Registration successful!');
+            return true;
+        }
+    </script>
+
+</body>
+</html>

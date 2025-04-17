@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="p2-style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2f4f6f;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color:  #355372;
+        }
+
+        .login-section h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        p a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="biy.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <h1>Volunteer Management System</h1>
+                <li><a href="p2-index.html">Home</a></li>
+                <li><a href="p2-about.html">About</a></li>
+                <li><a href="p2-contact.html">Contact</a></li>
+                <li><a href="p2-login.html">Login</a></li>
+                <li><a href="p2-register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="login-section">
+        <form id="loginForm" onsubmit="return handleLogin()">
+            <h2>Login</h2>
+            <div id="error-message" class="error-message" style="display:none;"></div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+            </div>
+            
+            <button type="submit">Login</button>
+            
+            <p>Don't have an account? <a href="p2-register.html">Register here</a></p>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Volunteer Management System. All rights reserved.</p>
+        <p>
+            Follow us on:
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </p>   
+    </footer>
+
+    <script>
+        function handleLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Fetch stored user details from localStorage
+            const storedUser = JSON.parse(localStorage.getItem(email));
+
+            if (storedUser) {
+                // If the email exists, check if the password matches
+                if (storedUser.password === password) {
+                    alert('Login successful!');
+                    return true;
+                } else {
+                    errorMessage.style.display = 'block';
+                    errorMessage.textContent = 'Incorrect password. Please try again.';
+                    return false;
+                }
+            } else {
+                errorMessage.style.display = 'block';
+                errorMessage.textContent = 'User not found. Please sign up first.';
+                return false;
+            }
+            window.location.href = 'p2-profile.html';
+        }
+    </script>
+
+</body>
+</html>

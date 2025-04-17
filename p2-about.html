@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="p2-style.css">
+    <style>
+        .activity-box {
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .activity-box:hover {
+            background-color: #1f2f46;
+            transform: scale(1.05);
+        }
+        .activity-box p {
+            display: none;
+        }
+        .activity-box.active p {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="biy.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <h1>Volunteer Management System</h1>
+                <li><a href="p2-index.html">Home</a></li>
+                <li><a href="p2-about.html">About</a></li>
+                <li><a href="p2-contact.html">Contact</a></li>
+                <li><a href="p2-login.html">Login</a></li>
+                <li><a href="p2-register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <h1 style="text-align: center;">About Us</h1>
+        <p>"Be It You" is a pioneering organization dedicated to creating positive social change through volunteerism. Our mission is to connect individuals with meaningful opportunities to contribute to their communities and make a difference. Here’s a look at our key achievements and activities:</p>
+        
+        <h2>Achievements</h2>
+        <p>We have proudly accomplished the following:</p>
+        <ul>
+            <li><strong>Organized over 100 successful community service events</strong> across various cities, bringing together thousands of individuals for a common cause.</li>
+            <li><strong>Engaged more than 5,000 volunteers</strong> in environmental cleanup projects, resulting in the removal of over 20,000 kg of waste from our communities.</li>
+            <li><strong>Implemented a tutoring program</strong> that has <em>helped 1,500 students</em> improve their academic performance, fostering educational growth.</li>
+            <li><strong>Launched a food drive initiative</strong> that has <em>distributed over 50,000 meals</em> to underprivileged families, addressing food insecurity.</li>
+            <li><strong>Partnered with local schools</strong> to establish after-school programs benefiting over 2,000 children, enhancing their educational and developmental opportunities.</li>
+        </ul>
+        <p>We believe that every small action contributes to a larger impact. By working together, we can achieve greater heights and create a more compassionate world.</p>
+        
+        <h2>Activities</h2>
+        <div class="activities-container">
+            <div class="activity-box" onclick="showDetails(this)">
+                <h3>Community Cleanups</h3>
+                <p>Regular clean-up drives in urban and rural areas to promote environmental sustainability.</p>
+            </div>
+            <div class="activity-box" onclick="showDetails(this)">
+                <h3>Blood Donation Drives</h3>
+                <p>Collaborated with hospitals to organize blood donation camps and increase blood supply.</p>
+            </div>
+            <div class="activity-box" onclick="showDetails(this)">
+                <h3>Beach Cleanups</h3>
+                <p>Focused on cleaning and protecting coastal areas to preserve marine life.</p>
+            </div>
+            <div class="activity-box" onclick="showDetails(this)">
+                <h3>Food Drives</h3>
+                <p>Collected and distributed non-perishable food items to needy families and shelters.</p>
+            </div>
+            <div class="activity-box" onclick="showDetails(this)">
+                <h3>Educational Workshops</h3>
+                <p>Provided workshops and training sessions on various topics including health, finance, and skills development.</p>
+            </div>
+            <div class="activity-box" onclick="showDetails(this)">
+                <h3>Health Camps</h3>
+                <p>Organized free health check-up camps and health awareness programs in underserved communities.</p>
+            </div>
+            <div class="activity-box" onclick="showDetails(this)">
+                <h3>Book Drives</h3>
+                <p>Collected and distributed books to schools and libraries to promote literacy.</p>
+            </div>
+            <div class="activity-box" onclick="showDetails(this)">
+                <h3>Disaster Relief</h3>
+                <p>Offered support and resources to communities affected by natural disasters.</p>
+            </div>
+            <div class="activity-box" onclick="showDetails(this)">
+                <h3>Animal Welfare Initiatives</h3>
+                <p>Conducted campaigns and provided aid for stray animals and animal shelters.</p>
+            </div>
+            <div class="activity-box" onclick="showDetails(this)">
+                <h3>Mentoring Programs</h3>
+                <p>Paired experienced professionals with young individuals for career guidance and development.</p>
+            </div>
+        </div>
+        
+        <p>Join us and be a part of this journey towards a better future.</p>
+    </section>
+    
+    <script>
+        function showDetails(element) {
+            const activityBoxes = document.querySelectorAll('.activity-box');
+            activityBoxes.forEach(box => {
+                if (box !== element) {
+                    box.classList.remove('active');
+                }
+            });
+            element.classList.toggle('active');
+        }
+    </script>
+    <footer>
+        <p>&copy; 2024 Volunteer Management System. All rights reserved.</p>
+        <p>
+            Follow us on:
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </p>
+    </footer>
+</body>
+</html>
